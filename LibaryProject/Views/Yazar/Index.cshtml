@@ -1,0 +1,36 @@
+﻿@*DB*@
+@using LibaryProject.Models.Entity
+@model List<TblYazar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yazarlar</h2>
+@*Yazar Listeleme tablosu*@
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Detay</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var yzr in Model)
+    {
+        <tr>
+            <td>@yzr.ID</td>
+            <td>@yzr.Ad</td>
+            <td>@yzr.Soyad</td>
+            <td>@yzr.Detay</td>
+            @*Alert ile Yazar silme işlemi*@
+            <td>@Html.ActionLink("Sil","DeleteYazar",new {id=yzr.ID},new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz ?')" })</td>
+            @*ID parametresi ile beraber redirect işlemi*@
+            <td><a href="/Yazar/GetYazar/@yzr.ID"class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+@*Yeni yazar ekleme butonu*@
+<a class="btn btn-primary" href="/Yazar/AddYazar/">Yeni Yazar Ekle</a>

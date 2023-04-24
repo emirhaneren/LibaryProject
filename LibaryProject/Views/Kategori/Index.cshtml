@@ -1,0 +1,33 @@
+﻿@*istelemek için Gereken Syntax*@
+@using LibaryProject.Models.Entity;
+@model List<TblKategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+
+@*Kategori Listeleme*@
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori ID</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @*Tabloda Listeleme işlemi*@
+    @foreach (var ktg in Model)
+    {
+        <tr>
+            <td>@ktg.ID</td>
+            <td>@ktg.Ad</td>
+            <td><a href="/Kategori/DeleteKategori/@ktg.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kategori/GetKategori/@ktg.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@*Yeni Öğe Butonu*@
+<a href="/Kategori/AddKategori" class="btn btn-primary">Yeni Kategori Ekle</a>
+

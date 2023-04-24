@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d1b4bae7f29b4af58481d55a7ec38892" Name="Diagram1">
+        <EntityTypeShape EntityType="DbLibaryModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblCezalar" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblHareket" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblKasa" Width="1.5" PointX="7.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblKategori" Width="1.5" PointX="1.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblKitap" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblPersonel" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblUyeler" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblYazar" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="DbLibaryModel.FK_TblCezalar_TblHareket" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibaryModel.FK_TblCezalar_TblUyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibaryModel.FK_TblHareket_TblKitap" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibaryModel.FK_TblHareket_TblPersonel" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibaryModel.FK_TblHareket_TblUyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibaryModel.FK_TblKitap_TblKategori" ManuallyRouted="false" />
+        <AssociationConnector Association="DbLibaryModel.FK_TblKitap_TblYazar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

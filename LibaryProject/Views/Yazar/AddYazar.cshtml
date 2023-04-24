@@ -1,0 +1,26 @@
+﻿@model LibaryProject.Models.Entity.TblYazar
+@{
+    ViewBag.Title = "AddYazar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@*html helper ile kategori ekleme*@
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Yazar Adı</label>
+        @Html.TextBoxFor(yzr=>yzr.Ad, new {@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar Soyadı</label>
+        @Html.TextBoxFor(yzr=>yzr.Soyad, new {@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar Detayı</label>
+        @Html.TextAreaFor(yzr => yzr.Detay, new {@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Yazar Ekle</button>
+    </div>
+</form>
+
