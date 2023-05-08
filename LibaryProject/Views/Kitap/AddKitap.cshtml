@@ -1,0 +1,39 @@
+﻿@model LibaryProject.Models.Entity.TblKitap
+@{
+    ViewBag.Title = "KitapEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@*html helper ile kategori ekleme*@
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(ktp => ktp.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Kategori</label>
+        @Html.DropDownListFor(k=>k.TblKategori.ID,(List<SelectListItem>)ViewBag.dgr1,new {@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Yazarı</label>
+        @Html.DropDownListFor(k=>k.TblYazar.ID,(List<SelectListItem>)ViewBag.dgr2,new{@class="form-control"})
+    </div>
+    <div style="margin-top:15px">
+        <label>Basım Yılı</label>
+        @Html.TextBoxFor(ktp => ktp.BasımYılı, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Yayın Evi</label>
+        @Html.TextBoxFor(ktp => ktp.YayınEvi, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Sayfa Sayısı</label>
+        @Html.TextBoxFor(ktp => ktp.SayfaSayısı, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kitap Ekle</button>
+    </div>
+</form>
+
+

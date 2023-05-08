@@ -1,0 +1,48 @@
+﻿@using LibaryProject.Models.Entity
+@model List<TblKitap>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Sayfası</h2>
+
+@using (Html.BeginForm("Index","Kitap",FormMethod.Get))
+            {
+                <div style="margin-bottom:15px; margin-top:15px;">
+                    <b>Aranacak Kitap Adını Girin: &nbsp;</b> @Html.TextBox("p")
+                    <input type="submit" value="Ara" />
+                </div>
+            }
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Yayın Evi</th>
+        <th>Sayfa Sayısı</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var k in Model)
+            {
+                <tr>
+                    <td>@k.ID</td>
+                    <td>@k.Ad</td>
+                    <td>@k.TblYazar.Ad @k.TblYazar.Soyad</td>
+                    <td>@k.TblKategori.Ad</td>
+                    <td>@k.BasımYılı</td>
+                    <td>@k.YayınEvi</td>
+                    <td>@k.SayfaSayısı</td>
+                    <td>@k.Durum</td>
+                    <td><a href="/Kitap/DeleteKitap/@k.ID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Kitap/GetKitap/@k.ID" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+</table>
+<a href="/Kitap/AddKitap" class="btn btn-primary">Yeni Kitap Ekle</a>
+

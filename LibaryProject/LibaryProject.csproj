@@ -254,10 +254,12 @@
     <Content Include="Views\Yazar\Index.cshtml" />
     <Content Include="Views\Yazar\AddYazar.cshtml" />
     <Content Include="Views\Yazar\GetYazar.cshtml" />
+    <Content Include="Views\Kitap\Index.cshtml" />
+    <Content Include="Views\Kitap\AddKitap.cshtml" />
+    <Content Include="Views\Kitap\GetKitap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Kitap\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
