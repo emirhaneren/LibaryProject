@@ -36,6 +36,8 @@
           <Property Name="Personel" Type="tinyint" />
           <Property Name="AlisTarih" Type="smalldatetime" />
           <Property Name="IadeTarih" Type="smalldatetime" />
+          <Property Name="UyeGetirTarih" Type="smalldatetime" />
+          <Property Name="IslemDurum" Type="bit" />
         </EntityType>
         <EntityType Name="TblKasa">
           <Key>
@@ -259,6 +261,8 @@
           <NavigationProperty Name="TblKitap" Relationship="Self.FK_TblHareket_TblKitap" FromRole="TblHareket" ToRole="TblKitap" />
           <NavigationProperty Name="TblPersonel" Relationship="Self.FK_TblHareket_TblPersonel" FromRole="TblHareket" ToRole="TblPersonel" />
           <NavigationProperty Name="TblUyeler" Relationship="Self.FK_TblHareket_TblUyeler" FromRole="TblHareket" ToRole="TblUyeler" />
+          <Property Name="IslemDurum" Type="Boolean" />
+          <Property Name="UyeGetirTarih" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="TblKasa">
           <Key>
@@ -481,6 +485,8 @@
           <EntitySetMapping Name="TblHareket">
             <EntityTypeMapping TypeName="DbLibaryModel.TblHareket">
               <MappingFragment StoreEntitySet="TblHareket">
+                <ScalarProperty Name="UyeGetirTarih" ColumnName="UyeGetirTarih" />
+                <ScalarProperty Name="IslemDurum" ColumnName="IslemDurum" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Kitap" ColumnName="Kitap" />
                 <ScalarProperty Name="Uye" ColumnName="Uye" />

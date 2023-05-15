@@ -1,0 +1,42 @@
+﻿@model LibaryProject.Models.Entity.TblUyeler
+@{
+    ViewBag.Title = "GetUye";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*Html Helper komutları ile güncelleme işlemi*@
+@using (Html.BeginForm("UpdateUye", "Uye", FormMethod.Post))
+{
+    <div style="margin-bottom:20px"></div>
+    <div class="form-group">
+        <label>Üye ID</label>
+        @Html.TextBoxFor(uye => uye.ID, new { @class = "form-control" })
+        <br />
+        <label>Üye Adı</label>
+        @Html.TextBoxFor(uye => uye.Ad, new { @class = "form-control" })
+        <br />
+        <label>Üye Soyadı</label>
+        @Html.TextBoxFor(uye => uye.Soyad, new { @class = "form-control" })
+        <br />
+        <label>Mail Adresi</label>
+        @Html.TextBoxFor(uye => uye.Mail, new { @class = "form-control" })
+        <br />
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(uye => uye.KullanıcıAdi, new { @class = "form-control" })
+        <br />
+        <label>Şifre</label>
+        @Html.TextBoxFor(uye => uye.Sifre, new { @class = "form-control" })
+        <br />
+        <label>Telefon</label>
+        @Html.TextBoxFor(uye => uye.Telefon, new { @class = "form-control" })
+        <br />
+        <label>Okul</label>
+        @Html.TextBoxFor(uye => uye.Okul, new { @class = "form-control" })
+        <br />
+        <label>Fotoğraf Link</label>
+        @Html.TextBoxFor(uye => uye.Fotograf, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+

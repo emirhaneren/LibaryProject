@@ -1,0 +1,32 @@
+﻿@model LibaryProject.Models.Entity.TblPersonel
+@{
+    ViewBag.Title = "AddPersonel";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@*html helper ile kategori ekleme*@
+<form class="form-group" method="post">
+        <div></div>
+        <div style="margin-top:15px">
+            <label>Personel Adı</label>
+            @Html.TextBoxFor(prs=>prs.Personel, new {@class="form-control"})
+            @*Data annotations error message view*@
+            @Html.ValidationMessageFor(prs=>prs.Personel,"",new {@style="color:red"})
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Personel Ekle</button>
+        </div>
+    </form>
+@*Normal input kullanarak ekleme işlemi*@
+@*<form class="form-group" method="post">
+    <br />
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Personel Adı</label>
+        <input type="text" class="form-control" name="Personel" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Personel Ekle</button>
+    </div>
+</form>*@
+

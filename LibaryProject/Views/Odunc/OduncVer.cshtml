@@ -1,0 +1,34 @@
+﻿@model LibaryProject.Models.Entity.TblHareket
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*html helper ile kategori ekleme*@
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Uye ID</label>
+        @Html.TextBoxFor(ktp => ktp.Uye, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap ID</label>
+        @Html.TextBoxFor(ktp => ktp.Kitap, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Personel ID</label>
+        @Html.TextBoxFor(ktp => ktp.Personel, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap Alış Tarihi</label>
+        <input type="text" class="form-control" name="AlisTarih" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Kitap İade Tarihi</label>
+        <input type="text" class="form-control" name="IadeTarih" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" style="background-color:#c30bc4">Kitap Ödünç Ver</button>
+        <input type="hidden" value="False" name="IsslemDurum" />
+    </div>
+</form>
+

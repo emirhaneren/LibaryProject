@@ -1,0 +1,46 @@
+﻿@*istelemek için Gereken Syntax*@
+@using LibaryProject.Models.Entity;
+@using PagedList
+@using PagedList.Mvc
+@*PagedList model*@
+@model PagedList.IPagedList<TblUyeler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*Uyeler Listeleme*@
+<table class="table table-bordered">
+    <tr>
+        <th>Uye ID</th>
+        <th>Üye Adı</th>
+        <th>Üye Soyadı</th>
+        <th>Mail</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Telefon</th>
+        <th>Okul</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @*Tabloda Listeleme işlemi*@
+    @foreach (var uye in Model)
+    {
+        <tr>
+            <td>@uye.ID</td>
+            <td>@uye.Ad</td>
+            <td>@uye.Soyad</td>
+            <td>@uye.Mail</td>
+            <td>@uye.KullanıcıAdi</td>
+            <td>@uye.Sifre</td>
+            <td>@uye.Telefon</td>
+            <td>@uye.Okul</td>
+            <td><a href="/Uye/DeleteUye/@uye.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Uye/GetUye/@uye.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@*Next page button*@
+@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new {sayfa}))
+@*Yeni Öğe Butonu*@
+<a href="/Uye/AddUye" class="btn btn-primary">Yeni Üye Ekle</a>
+

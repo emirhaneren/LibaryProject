@@ -1,0 +1,32 @@
+﻿@*istelemek için Gereken Syntax*@
+@using LibaryProject.Models.Entity;
+@model List<TblPersonel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Personeller</h2>
+
+@*Personel Listeleme*@
+<table class="table table-bordered">
+    <tr>
+        <th>Personel ID</th>
+        <th>Personel Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @*Tabloda Listeleme işlemi*@
+    @foreach (var prs in Model)
+    {
+        <tr>
+            <td>@prs.ID</td>
+            <td>@prs.Personel</td>
+            <td><a href="/Personel/DeletePersonel/@prs.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Personel/GetPersonel/@prs.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@*Yeni Öğe Butonu*@
+<a href="/Personel/AddPersonel" class="btn btn-primary">Yeni Personel Ekle</a>
+

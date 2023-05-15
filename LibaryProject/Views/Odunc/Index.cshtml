@@ -1,0 +1,31 @@
+﻿@using LibaryProject.Models.Entity
+@model List<TblHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<h2>Ödünç Kitap Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>İşlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+        <th>İade Al</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.TblKitap.Ad</td>
+            <td>@k.TblUyeler.Ad @k.TblUyeler.Soyad</td>
+            <td>@k.TblPersonel.Personel</td>
+            <td>@Convert.ToDateTime(k.AlisTarih).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(k.IadeTarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Odunc/OduncIade/@k.ID" class="btn btn-danger" style="background-color:#3135ed">Kitap İade Et</a></td>
+        </tr>
+    }
+</table>
+

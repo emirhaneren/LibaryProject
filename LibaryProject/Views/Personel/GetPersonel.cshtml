@@ -1,0 +1,21 @@
+﻿@model LibaryProject.Models.Entity.TblPersonel 
+@{
+    ViewBag.Title = "GetPersonel";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*Html Helper komutları ile güncelleme işlemi*@
+@using (Html.BeginForm("UpdatePersonel", "Personel", FormMethod.Post))
+{
+    <div style="margin-bottom:20px"></div>
+    <div class="form-group">
+        @Html.LabelFor(prs => prs.ID)
+        @Html.TextBoxFor(prs => prs.ID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(prs => prs.Personel)
+        @Html.TextBoxFor(prs => prs.Personel, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+

@@ -1,80 +1,41 @@
-﻿using System;
+﻿using LibaryProject.Models.Entity;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
-using System.Web.WebPages.Html;
-using LibaryProject.Models.Entity;
 using SelectListItem = System.Web.Mvc.SelectListItem;
 
 namespace LibaryProject.Controllers
 {
-    public class KitapController : Controller
-    {
-        // GET: Kitap
-        DbLibaryEntities db = new DbLibaryEntities();
-        public ActionResult Index(string p)
-        {
-            var kitaplar = from k in db.TblKitap select k;
-            if(!string.IsNullOrEmpty(p))
-            {
-                kitaplar = kitaplar.Where(x => x.Ad.Contains(p));
-            }
+	public class KitapController : Controller
+	{
+		// GET: Kitap
+#pragma warning disable IDE0044 // Add readonly modifier
+		DbLibaryEntities db = new DbLibaryEntities();
+#pragma warning restore IDE0044 // Add readonly modifier
+		public ActionResult Index(string p)
+		{
+			var kitaplar = from k in db.TblKitap select k;
+			if (!string.IsNullOrEmpty(p))
+			{
+				kitaplar = kitaplar.Where(x => x.Ad.Contains(p));
+			}
 
-          //  var kitaplar=db.TblKitap.ToList();
+			//  var kitaplar=db.TblKitap.ToList();
 
-            return View(kitaplar.ToList());
-        }
-        [HttpGet]
-        public ActionResult AddKitap()
-        {
-            //DropDownList veri çekme
-            List<SelectListItem> deger1=(from i in db.TblKategori.ToList() select new SelectListItem
-            {
-                Text=i.Ad,
-                Value=i.ID.ToString()
-            })  .ToList();
-            ViewBag.dgr1 = deger1;
-
-            List<SelectListItem> deger2 = (from i in db.TblYazar.ToList() select new SelectListItem
-            {
-                Text=i.Ad + ' ' + i.Soyad,
-                Value=i.ID.ToString()
-            }).ToList();
-            ViewBag.dgr2=deger2;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult AddKitap(TblKitap p)
-        {
-            var ktg = db.TblKategori.Where(k => k.ID == p.TblKategori.ID).FirstOrDefault();
-            var yzr = db.TblYazar.Where(y=>y.ID==p.TblYazar.ID).FirstOrDefault();
-            p.TblKategori = ktg;
-            p.TblYazar = yzr;
-            db.TblKitap.Add(p);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        public ActionResult DeleteKitap(int id)
-        {
-            var kitap = db.TblKitap.Find(id);
-            db.TblKitap.Remove(kitap);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-        public ActionResult GetKitap(int id)
-        {
-            var kitap=db.TblKitap.Find(id);
+			return View(kitaplar.ToList());
+		}
+		[HttpGet]
+		public ActionResult AddKitap()
+		{
+			//DropDownList veri çekme
 			List<SelectListItem> deger1 = (from i in db.TblKategori.ToList()
 										   select new SelectListItem
 										   {
 											   Text = i.Ad,
 											   Value = i.ID.ToString()
 										   }).ToList();
-            ViewData["dgr1"] = deger1;
+			ViewBag.dgr1 = deger1;
 
 			List<SelectListItem> deger2 = (from i in db.TblYazar.ToList()
 										   select new SelectListItem
@@ -82,24 +43,63 @@ namespace LibaryProject.Controllers
 											   Text = i.Ad + ' ' + i.Soyad,
 											   Value = i.ID.ToString()
 										   }).ToList();
-            ViewData["dgr2"]=deger2;
+			ViewBag.dgr2 = deger2;
+			return View();
+		}
+		[HttpPost]
+		public ActionResult AddKitap(TblKitap p)
+		{
+			var ktg = db.TblKategori.Where(k => k.ID == p.TblKategori.ID).FirstOrDefault();
+			var yzr = db.TblYazar.Where(y => y.ID == p.TblYazar.ID).FirstOrDefault();
+			p.TblKategori = ktg;
+			p.TblYazar = yzr;
+			db.TblKitap.Add(p);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+		public ActionResult DeleteKitap(int id)
+		{
+			var kitap = db.TblKitap.Find(id);
+			db.TblKitap.Remove(kitap);
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+		public ActionResult GetKitap(int id)
+		{
+			var kitap = db.TblKitap.Find(id);
+			List<SelectListItem> deger1 = (from i in db.TblKategori.ToList()
+										   select new SelectListItem
+										   {
+											   Text = i.Ad,
+											   Value = i.ID.ToString()
+										   }).ToList();
+			ViewData["dgr1"] = deger1;
+
+			List<SelectListItem> deger2 = (from i in db.TblYazar.ToList()
+										   select new SelectListItem
+										   {
+											   Text = i.Ad + ' ' + i.Soyad,
+											   Value = i.ID.ToString()
+										   }).ToList();
+			ViewData["dgr2"] = deger2;
 			return View("GetKitap", kitap);
-        }
-        public ActionResult UpdateKitap(TblKitap p)
-        {
-            var kitap = db.TblKitap.Find(p.ID);
-            kitap.Ad = p.Ad;
-            kitap.BasımYılı = p.BasımYılı;
-            kitap.SayfaSayısı = p.SayfaSayısı;
-            kitap.YayınEvi = p.YayınEvi;
+		}
+		public ActionResult UpdateKitap(TblKitap p)
+		{
+			var kitap = db.TblKitap.Find(p.ID);
+			kitap.Ad = p.Ad;
+			kitap.BasımYılı = p.BasımYılı;
+			kitap.SayfaSayısı = p.SayfaSayısı;
+			kitap.YayınEvi = p.YayınEvi;
+			kitap.Durum = true;
 
-            var ktg=db.TblKategori.Where(k=>k.ID==p.TblKategori.ID).FirstOrDefault();
-            var yzr=db.TblYazar.Where(y=>y.ID==p.TblYazar.ID).FirstOrDefault();
-            kitap.Kategori = ktg.ID;
-            kitap.Yazar=yzr.ID;
+			var ktg = db.TblKategori.Where(k => k.ID == p.TblKategori.ID).FirstOrDefault();
+			var yzr = db.TblYazar.Where(y => y.ID == p.TblYazar.ID).FirstOrDefault();
+			kitap.Kategori = ktg.ID;
+			kitap.Yazar = yzr.ID;
 
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-    }
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
+	}
 }

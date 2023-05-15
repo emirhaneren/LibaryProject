@@ -1,0 +1,47 @@
+﻿@model LibaryProject.Models.Entity.TblUyeler
+@{
+    ViewBag.Title = "AddUye";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*html helper ile kategori ekleme*@
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Üye Adı</label>
+        @Html.TextBoxFor(uye => uye.Ad, new { @class = "form-control" })
+        @*Data annotations error message view*@
+        @Html.ValidationMessageFor(uye => uye.Ad, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Üye Soyadı</label>
+        @Html.TextBoxFor(uye => uye.Soyad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mail Adresi</label>
+        @Html.TextBoxFor(uye => uye.Mail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(uye => uye.KullanıcıAdi, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifre</label>
+        @Html.TextBoxFor(uye => uye.Sifre, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fotoğraf Linki</label>
+        @Html.TextBoxFor(uye => uye.Fotograf, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Telefon</label>
+        @Html.TextBoxFor(uye => uye.Telefon, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Okul</label>
+        @Html.TextBoxFor(uye => uye.Okul, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Personel Ekle</button>
+    </div>
+</form>
+
