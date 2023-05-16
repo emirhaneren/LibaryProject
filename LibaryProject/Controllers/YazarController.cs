@@ -7,8 +7,10 @@ namespace LibaryProject.Controllers
 	{
 		// GET: Yazar
 		//Create an entitiy
+#pragma warning disable IDE0044 // Add readonly modifier
 		DbLibaryEntities db = new DbLibaryEntities();
-		//Listeleme işlemi
+#pragma warning restore IDE0044 // Add readonly modifier
+							   //Listeleme işlemi
 		public ActionResult Index()
 		{
 			var degerler = db.TblYazar.ToList();
@@ -23,6 +25,10 @@ namespace LibaryProject.Controllers
 		[HttpPost]
 		public ActionResult AddYazar(TblYazar p)
 		{
+			if(!ModelState.IsValid)
+			{
+				return View("AddYazar");
+			}
 			db.TblYazar.Add(p);
 			db.SaveChanges();
 			return View();

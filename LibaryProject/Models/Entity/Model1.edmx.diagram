@@ -21,6 +21,8 @@
         <AssociationConnector Association="DbLibaryModel.FK_TblHareket_TblUyeler" ManuallyRouted="false" />
         <AssociationConnector Association="DbLibaryModel.FK_TblKitap_TblKategori" ManuallyRouted="false" />
         <AssociationConnector Association="DbLibaryModel.FK_TblKitap_TblYazar" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblHakkimizda" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblIletisim" Width="1.5" PointX="6.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

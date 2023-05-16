@@ -26,6 +26,13 @@
           <Property Name="Para" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Hareket" Type="int" />
         </EntityType>
+        <EntityType Name="TblHakkimizda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aciklama" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="TblHareket">
           <Key>
             <PropertyRef Name="ID" />
@@ -38,6 +45,16 @@
           <Property Name="IadeTarih" Type="smalldatetime" />
           <Property Name="UyeGetirTarih" Type="smalldatetime" />
           <Property Name="IslemDurum" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblIletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+          <Property Name="Konu" Type="varchar" MaxLength="50" />
+          <Property Name="Mesaj" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="TblKasa">
           <Key>
@@ -66,6 +83,7 @@
           <Property Name="YayınEvi" Type="varchar" MaxLength="50" />
           <Property Name="SayfaSayısı" Type="varchar" MaxLength="4" />
           <Property Name="Durum" Type="bit" />
+          <Property Name="KitapResim" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="TblPersonel">
           <Key>
@@ -184,7 +202,9 @@
         <EntityContainer Name="DbLibaryModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCezalar" EntityType="Self.TblCezalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblHakkimizda" EntityType="Self.TblHakkimizda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblHareket" EntityType="Self.TblHareket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblIletisim" EntityType="Self.TblIletisim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblKasa" EntityType="Self.TblKasa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblKategori" EntityType="Self.TblKategori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblKitap" EntityType="Self.TblKitap" Schema="dbo" store:Type="Tables" />
@@ -295,6 +315,7 @@
           <NavigationProperty Name="TblHareket" Relationship="Self.FK_TblHareket_TblKitap" FromRole="TblKitap" ToRole="TblHareket" />
           <NavigationProperty Name="TblKategori" Relationship="Self.FK_TblKitap_TblKategori" FromRole="TblKitap" ToRole="TblKategori" />
           <NavigationProperty Name="TblYazar" Relationship="Self.FK_TblKitap_TblYazar" FromRole="TblKitap" ToRole="TblYazar" />
+          <Property Name="KitapResim" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TblPersonel">
           <Key>
@@ -452,7 +473,26 @@
             <End Role="TblYazar" EntitySet="TblYazar" />
             <End Role="TblKitap" EntitySet="TblKitap" />
           </AssociationSet>
+          <EntitySet Name="TblHakkimizda" EntityType="DbLibaryModel.TblHakkimizda" />
+          <EntitySet Name="TblIletisim" EntityType="DbLibaryModel.TblIletisim" />
         </EntityContainer>
+        <EntityType Name="TblHakkimizda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblIletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -516,6 +556,7 @@
           <EntitySetMapping Name="TblKitap">
             <EntityTypeMapping TypeName="DbLibaryModel.TblKitap">
               <MappingFragment StoreEntitySet="TblKitap">
+                <ScalarProperty Name="KitapResim" ColumnName="KitapResim" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Kategori" ColumnName="Kategori" />
@@ -557,6 +598,25 @@
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Soyad" ColumnName="Soyad" />
                 <ScalarProperty Name="Detay" ColumnName="Detay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblHakkimizda">
+            <EntityTypeMapping TypeName="DbLibaryModel.TblHakkimizda">
+              <MappingFragment StoreEntitySet="TblHakkimizda">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblIletisim">
+            <EntityTypeMapping TypeName="DbLibaryModel.TblIletisim">
+              <MappingFragment StoreEntitySet="TblIletisim">
+                <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+                <ScalarProperty Name="Konu" ColumnName="Konu" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

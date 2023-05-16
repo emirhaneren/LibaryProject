@@ -134,15 +134,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IslemController.cs" />
+    <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\KitapController.cs" />
     <Compile Include="Controllers\OduncController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
+    <Compile Include="Controllers\VitrinController.cs" />
     <Compile Include="Controllers\YazarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Classes\Class1.cs" />
     <Compile Include="Models\Entity\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,7 +167,13 @@
     <Compile Include="Models\Entity\TblCezalar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TblHakkimizda.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TblHareket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\TblIletisim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TblKasa.cs">
@@ -224,6 +233,106 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="WebSource\images\istockphoto-1200326335-1024x1024.jpg" />
+    <Content Include="WebSource\images\istockphoto-135341581-1024x1024.jpg" />
+    <Content Include="WebSource\images\istockphoto-145855054-1024x1024.jpg" />
+    <Content Include="WebSource\images\istockphoto-185215276-1024x1024.jpg" />
+    <Content Include="WebSource\images\istockphoto-523460307-1024x1024.jpg" />
+    <Content Include="WebSource\images\istockphoto-915681666-1024x1024.jpg" />
+    <Content Include="WebSource\web2\css\bootstrap.css" />
+    <Content Include="WebSource\web2\css\clndr.css" />
+    <Content Include="WebSource\web2\css\jqvmap.css" />
+    <Content Include="WebSource\web2\css\nav.css" />
+    <Content Include="WebSource\web2\css\style.css" />
+    <Content Include="WebSource\web2\images\ar2.png" />
+    <Content Include="WebSource\web2\images\arrows.png" />
+    <Content Include="WebSource\web2\images\avatar.jpg" />
+    <Content Include="WebSource\web2\images\avatar1.jpg" />
+    <Content Include="WebSource\web2\images\avatar2.jpg" />
+    <Content Include="WebSource\web2\images\img-sprite.png" />
+    <Content Include="WebSource\web2\images\into.png" />
+    <Content Include="WebSource\web2\images\into1.png" />
+    <Content Include="WebSource\web2\images\logo.png" />
+    <Content Include="WebSource\web2\images\pp.jpg" />
+    <Content Include="WebSource\web2\images\pp0.jpg" />
+    <Content Include="WebSource\web2\images\pp01.jpg" />
+    <Content Include="WebSource\web2\images\settings.png" />
+    <Content Include="WebSource\web2\images\tick-mark.png" />
+    <Content Include="WebSource\web2\index.html" />
+    <Content Include="WebSource\web2\js\Chart1.js" />
+    <Content Include="WebSource\web2\js\clndr.js" />
+    <Content Include="WebSource\web2\js\easyResponsiveTabs.js" />
+    <Content Include="WebSource\web2\js\jquery.easydropdown.js" />
+    <Content Include="WebSource\web2\js\jquery.min.js" />
+    <Content Include="WebSource\web2\js\jquery.nicescroll.js" />
+    <Content Include="WebSource\web2\js\jquery.vmap.js" />
+    <Content Include="WebSource\web2\js\jquery.vmap.sampledata.js" />
+    <Content Include="WebSource\web2\js\jquery.vmap.world.js" />
+    <Content Include="WebSource\web2\js\main.js" />
+    <Content Include="WebSource\web2\js\moment-2.2.1.js" />
+    <Content Include="WebSource\web2\js\site.js" />
+    <Content Include="WebSource\web2\js\underscore-min.js" />
+    <Content Include="WebSource\web2\resimler\book1.jpg" />
+    <Content Include="WebSource\web2\resimler\book2.jpg" />
+    <Content Include="WebSource\web2\resimler\book3.jpg" />
+    <Content Include="WebSource\web2\resimler\book4.jpg" />
+    <Content Include="WebSource\web2\resimler\book5.jpg" />
+    <Content Include="WebSource\web2\resimler\img1.jpg" />
+    <Content Include="WebSource\web2\w3layouts-License.txt" />
+    <Content Include="WebSource\webhava\css\style.css" />
+    <Content Include="WebSource\webhava\images\bg.jpg" />
+    <Content Include="WebSource\webhava\images\img1.jpg" />
+    <Content Include="WebSource\webhava\index.html" />
+    <Content Include="WebSource\webhava\js\jquery-2.1.4.min.js" />
+    <Content Include="WebSource\webhava\js\skycons.js" />
+    <Content Include="WebSource\webhava\w3layouts-License.txt" />
+    <Content Include="WebSource\web\.gitignore" />
+    <Content Include="WebSource\web\css\freelancer.css" />
+    <Content Include="WebSource\web\css\freelancer.min.css" />
+    <Content Include="WebSource\web\gulpfile.js" />
+    <Content Include="WebSource\web\img\library.png" />
+    <Content Include="WebSource\web\img\library3.jpg" />
+    <Content Include="WebSource\web\img\portfolio\cabin.png" />
+    <Content Include="WebSource\web\img\portfolio\cake.png" />
+    <Content Include="WebSource\web\img\portfolio\circus.png" />
+    <Content Include="WebSource\web\img\portfolio\game.png" />
+    <Content Include="WebSource\web\img\portfolio\safe.png" />
+    <Content Include="WebSource\web\img\portfolio\submarine.png" />
+    <Content Include="WebSource\web\index.html" />
+    <Content Include="WebSource\web\js\contact_me.js" />
+    <Content Include="WebSource\web\js\contact_me.min.js" />
+    <Content Include="WebSource\web\js\freelancer.js" />
+    <Content Include="WebSource\web\js\freelancer.min.js" />
+    <Content Include="WebSource\web\js\jqBootstrapValidation.js" />
+    <Content Include="WebSource\web\js\jqBootstrapValidation.min.js" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\all.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\all.min.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\brands.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\brands.min.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\fontawesome.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\regular.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\regular.min.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\solid.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\solid.min.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\v4-shims.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="WebSource\web\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="WebSource\web\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="WebSource\web\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="WebSource\web\vendor\jquery\jquery.js" />
+    <Content Include="WebSource\web\vendor\jquery\jquery.min.js" />
+    <Content Include="WebSource\web\vendor\jquery\jquery.slim.js" />
+    <Content Include="WebSource\web\vendor\jquery\jquery.slim.min.js" />
     <EntityDeploy Include="Models\Entity\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -276,6 +385,46 @@
     <Content Include="Views\Odunc\Index.cshtml" />
     <Content Include="Views\Odunc\OduncIade.cshtml" />
     <Content Include="Views\Islem\Index.cshtml" />
+    <Content Include="WebSource\web\.browserslistrc" />
+    <Content Include="WebSource\web\.travis.yml" />
+    <Content Include="WebSource\web\LICENSE" />
+    <Content Include="WebSource\web\mail\contact_me.php" />
+    <Content Include="WebSource\web\package-lock.json" />
+    <Content Include="WebSource\web\package.json" />
+    <Content Include="WebSource\web\README.md" />
+    <Content Include="WebSource\web\scss\base\_page.scss" />
+    <Content Include="WebSource\web\scss\base\_variables.scss" />
+    <Content Include="WebSource\web\scss\components\_buttons.scss" />
+    <Content Include="WebSource\web\scss\components\_divider.scss" />
+    <Content Include="WebSource\web\scss\freelancer.scss" />
+    <Content Include="WebSource\web\scss\layout\_contact.scss" />
+    <Content Include="WebSource\web\scss\layout\_footer.scss" />
+    <Content Include="WebSource\web\scss\layout\_masthead.scss" />
+    <Content Include="WebSource\web\scss\layout\_navbar.scss" />
+    <Content Include="WebSource\web\scss\layout\_portfolio.scss" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="WebSource\web\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="WebSource\web\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="WebSource\web\vendor\jquery\jquery.min.map" />
+    <Content Include="WebSource\web\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Views\Vitrin\Index.cshtml" />
+    <Content Include="Views\Istatistik\Index.cshtml" />
+    <Content Include="Views\Istatistik\Hava.cshtml" />
+    <Content Include="Views\Istatistik\HavaKart.cshtml" />
+    <Content Include="Views\Istatistik\Galeri.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

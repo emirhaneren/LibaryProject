@@ -1,4 +1,5 @@
 ﻿using LibaryProject.Models.Entity;
+using System;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
@@ -28,9 +29,13 @@ namespace LibaryProject.Controllers
 			db.SaveChanges();
 			return View();
 		}
-		public ActionResult OduncIade(int id)
+		public ActionResult OduncIade(TblHareket p)
 		{
-			var odc = db.TblHareket.Find(id);
+			var odc = db.TblHareket.Find(p.ID);
+			DateTime baslangıc= DateTime.Parse(odc.IadeTarih.ToString());
+			DateTime bugun=Convert.ToDateTime(DateTime.Now.ToShortDateString());
+			TimeSpan sonuc = bugun - baslangıc;
+			ViewBag.dgr = sonuc.TotalDays;
 			return View("OduncIade", odc);
 		}
 		public ActionResult OduncGuncelle(TblHareket p)
