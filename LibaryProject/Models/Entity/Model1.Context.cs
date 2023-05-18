@@ -63,5 +63,20 @@ namespace LibaryProject.Models.Entity
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaYayinEvi2");
         }
+    
+        public virtual ObjectResult<string> EnCaliskanPersonel()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnCaliskanPersonel");
+        }
+    
+        public virtual ObjectResult<string> EnFazlaOkunanKitap()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaOkunanKitap");
+        }
+    
+        public virtual ObjectResult<string> EnAktifUye()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnAktifUye");
+        }
     }
 }

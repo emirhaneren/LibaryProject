@@ -55,9 +55,12 @@ namespace LibaryProject.Controllers
 			var deger3 = db.TblCezalar.Sum(x => x.Para);
 			var deger4 = db.TblKitap.Where(x => x.Durum == false).Count();
 			var deger5 = db.TblKategori.Count();
+			var deger6 = db.EnAktifUye().FirstOrDefault();
+			var deger7 = db.EnFazlaOkunanKitap().FirstOrDefault();
 			var deger8 = db.EnFazlaKitapYazar1().FirstOrDefault();
-			// var deger9 = db.TblKitap.GroupBy(x => x.YayınEvi).OrderByDescending(z => z.Count()).Select(y => new { y.Key }).FirstOrDefault();
-			var deger9 = db.EnFazlaYayinEvi2().FirstOrDefault();
+			var deger9 = db.TblKitap.GroupBy(x => x.YayınEvi).OrderByDescending(z => z.Count()).Select(y => new { y.Key }).FirstOrDefault();
+			//var deger9 = db.EnFazlaYayinEvi2().FirstOrDefault();
+			var deger10 = db.EnCaliskanPersonel().FirstOrDefault();
 			var deger11 = db.TblIletisim.Count();
 			var deger12 = db.TblHareket.Count();
 			ViewBag.dgr1 = deger1;
@@ -65,8 +68,11 @@ namespace LibaryProject.Controllers
 			ViewBag.dgr3 = deger3;
 			ViewBag.dgr4 = deger4;
 			ViewBag.dgr5 = deger5;
+			ViewBag.dgr6 = deger6;
+			ViewBag.dgr7=deger7;
 			ViewBag.dgr8 = deger8;
 			ViewBag.dgr9 = deger9;
+			ViewBag.dgr10 = deger10;
 			ViewBag.dgr11 = deger11;
 			ViewBag.dgr12 = deger12;
 			return View();

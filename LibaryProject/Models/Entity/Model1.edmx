@@ -199,7 +199,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EnAktifUye" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnCaliskanPersonel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="EnFazlaKitapYazar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnFazlaOkunanKitap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="EnFazlaYayinEvi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbLibaryModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -482,6 +485,9 @@
           <FunctionImport Name="EnFazlaYayinEvi1" ReturnType="Collection(String)" />
           <FunctionImport Name="EnFazlaKitapYazar1" ReturnType="Collection(String)" />
           <FunctionImport Name="EnFazlaYayinEvi2" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnCaliskanPersonel" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnFazlaOkunanKitap" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnAktifUye" ReturnType="Collection(String)" />
         </EntityContainer>
         <EntityType Name="TblHakkimizda">
           <Key>
@@ -633,6 +639,9 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="EnFazlaKitapYazar1" FunctionName="DbLibaryModel.Store.EnFazlaKitapYazar" />
           <FunctionImportMapping FunctionImportName="EnFazlaYayinEvi2" FunctionName="DbLibaryModel.Store.EnFazlaYayinEvi" />
+          <FunctionImportMapping FunctionImportName="EnCaliskanPersonel" FunctionName="DbLibaryModel.Store.EnCaliskanPersonel" />
+          <FunctionImportMapping FunctionImportName="EnFazlaOkunanKitap" FunctionName="DbLibaryModel.Store.EnFazlaOkunanKitap" />
+          <FunctionImportMapping FunctionImportName="EnAktifUye" FunctionName="DbLibaryModel.Store.EnAktifUye" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
