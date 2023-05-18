@@ -199,6 +199,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EnFazlaKitapYazar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EnFazlaYayinEvi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbLibaryModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCezalar" EntityType="Self.TblCezalar" Schema="dbo" store:Type="Tables" />
@@ -475,6 +477,11 @@
           </AssociationSet>
           <EntitySet Name="TblHakkimizda" EntityType="DbLibaryModel.TblHakkimizda" />
           <EntitySet Name="TblIletisim" EntityType="DbLibaryModel.TblIletisim" />
+          <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnFazlaYayinEvi" ReturnType="Collection(DbLibaryModel.EnFazlaYayinEvi_Result)" />
+          <FunctionImport Name="EnFazlaYayinEvi1" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnFazlaKitapYazar1" ReturnType="Collection(String)" />
+          <FunctionImport Name="EnFazlaYayinEvi2" ReturnType="Collection(String)" />
         </EntityContainer>
         <EntityType Name="TblHakkimizda">
           <Key>
@@ -493,6 +500,10 @@
           <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="EnFazlaYayinEvi_Result">
+          <Property Type="String" Name="YayınEvi" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Column1" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -620,6 +631,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnFazlaKitapYazar1" FunctionName="DbLibaryModel.Store.EnFazlaKitapYazar" />
+          <FunctionImportMapping FunctionImportName="EnFazlaYayinEvi2" FunctionName="DbLibaryModel.Store.EnFazlaYayinEvi" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

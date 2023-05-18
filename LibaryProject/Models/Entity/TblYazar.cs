@@ -9,27 +9,23 @@
 
 namespace LibaryProject.Models.Entity
 {
-	using System;
-	using System.Collections.Generic;
-	using System.ComponentModel.DataAnnotations;
-
-	public partial class TblYazar
-	{
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-		public TblYazar()
-		{
-			this.TblKitap = new HashSet<TblKitap>();
-		}
-
-		public int ID { get; set; }
-		//Data Annotation
-		[Required(ErrorMessage = "Yazar adýný boþ geçemezsiniz.")]
-		public string Ad { get; set; }
-		[StringLength(50, ErrorMessage = "Soyad 50 karakterden uzun olamaz.")]
-		public string Soyad { get; set; }
-		public string Detay { get; set; }
-
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-		public virtual ICollection<TblKitap> TblKitap { get; set; }
-	}
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class TblYazar
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TblYazar()
+        {
+            this.TblKitap = new HashSet<TblKitap>();
+        }
+    
+        public int ID { get; set; }
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+        public string Detay { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TblKitap> TblKitap { get; set; }
+    }
 }
