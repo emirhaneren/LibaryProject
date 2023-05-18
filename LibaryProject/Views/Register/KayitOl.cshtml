@@ -1,4 +1,4 @@
-﻿
+﻿@model LibaryProject.Models.Entity.TblUyeler
 @{
     Layout = null;
 }
@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="content3">
                         <ul>
                             <li><a class="" href="/Login/GirisYap/"> Giriş Yap </a></li>
-                            <li><a class="read" href="/Vitrin/Index/"> Siteye Dön</a></li>
+                            <li><a class="read" href="/Vitrin/Index/"> Siteye Dön </a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,41 +54,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <form action="#" method="post">
                             <div class="fields-grid">
                                 <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="First name" required="">
+                                    <input type="text" name="Ad" required="">
                                     <label>İsim</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="Surname" required="">
+                                    <input type="text" name="Soyad" required="required">
                                     <label>Soyisim</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input">
-                                    <input type="email" name="Email" required="">
+                                    <input type="email" name="Mail" required="required">
                                     <label>e-Mail</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input">
-                                    <input type="tel" name="Phone" required="">
+                                    <input type="tel" name="Telefon" required="">
                                     <label>Telefon Numarası</label>
                                     <span></span>
                                 </div>
                                 <div class="styled-input">
-                                    <input type="password" name="password" required="">
-                                    <label>Şifre</label>
+                                    <input type="text" name="KullanıcıAdi" required="required">
+                                    <label>Kullanıcı Adı</label>
                                     <span></span>
                                 </div>
-                                <div class="styled-input agile-styled-input-top">
-                                    <select id="category2" required="">
-                                        <option value="">Course Type*</option>
-                                        <option value="">Diploma</option>
-                                        <option value="">Full time</option>
-                                        <option value="">Part time</option>
-                                        <option value="">Higher degree</option>
-                                        <option value="">Graduate</option>
-                                        <option value="">Pg</option>
-                                        <option value="">Degree</option>
-                                    </select>
+                                <div class="styled-input">
+                                    <input type="password" name="Sifre" required="required">
+                                    <label>Şifre</label>
                                     <span></span>
                                 </div>
                                 <div class="clear"> </div>
