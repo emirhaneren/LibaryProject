@@ -1,8 +1,77 @@
-﻿
+﻿@model LibaryProject.Models.Entity.TblUyeler
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutPanel.cshtml";
 }
 
-<h2>Burası panel</h2>
+<br />
+<h2>Kütüphane Üye Bilgileri</h2>
+<br />
+
+@*Mail adresini sayfaya taşıma*@
+@*@HttpContext.Current.User.Identity.Name*@
+
+@using (Html.BeginForm("Index2", "Panel", FormMethod.Post))
+{
+    <table class="table table-hover">
+        <tr>
+            <td>
+                <label style="font-weight:bolder">e-Mail Adresi : </label> @HttpContext.Current.User.Identity.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>ID :</label>
+                @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>İsim :</label>
+                @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Soyisim :</label>
+                @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Şifre :</label>
+                @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Kullanıcı Adı :</label>
+                @Html.TextBoxFor(x => x.KullanıcıAdi, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Okul :</label>
+                @Html.TextBoxFor(x => x.Okul, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Fotoğraf Linki :</label>
+                @Html.TextBoxFor(x => x.Fotograf, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Telefon :</label>
+                @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-warning">Profili Güncelle</button>
+            </td>
+        </tr>
+    </table>
+}
 

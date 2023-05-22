@@ -1,4 +1,8 @@
 ﻿@model LibaryProject.Models.Classes.Class1
+@*istelemek için Gereken Syntax*@
+@using LibaryProject.Models.Entity;
+@using PagedList
+@using PagedList.Mvc
 @{
     Layout = null;
 }
@@ -103,7 +107,10 @@
                         </div>
                     </div>
                 }
+
             </div>
+            @*Next page button*@
+            @*@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))*@
             <!-- /.row -->
         </div>
     </section>

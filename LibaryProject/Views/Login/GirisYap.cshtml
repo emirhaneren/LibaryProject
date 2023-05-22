@@ -26,25 +26,25 @@
 
 </head>
 
-
 <body>
     <h1>Giriş Ekranı</h1>
     <div class=" w3l-login-form">
         <h2>Giriş Yap</h2>
-        <form action="#" method="POST">
+        @using (Html.BeginForm("GirisYap", "Login", FormMethod.Post))
+        {
 
             <div class=" w3l-form-group">
                 <label>Kullanıcı Adı :</label>
                 <div class="group">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" placeholder="Kullanıcı Adı" required="required" />
+                    <input type="text" class="form-control" placeholder="e-Mail" required="required" name="Mail" />
                 </div>
             </div>
             <div class=" w3l-form-group">
                 <label>Şifre :</label>
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" placeholder="Şifre" required="required" />
+                    <input type="password" class="form-control" placeholder="Şifre" required="required" name="Sifre" />
                 </div>
             </div>
             <div class="forgot">
@@ -52,7 +52,7 @@
                 <p><input type="checkbox">Beni Hatırla</p>
             </div>
             <button type="submit">Giriş</button>
-        </form>
+        }
         <p class=" w3l-register-p">Hesabınız yok mu ?<a href="/Register/KayitOl/" class="register"> Kayıt olun </a></p>
     </div>
 </body>
