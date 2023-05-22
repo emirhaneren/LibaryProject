@@ -36,5 +36,12 @@ namespace LibaryProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult KitapHareket()
+        {
+			var kullanici = (string)Session["Mail"];
+            var id=db.TblUyeler.Where(x=>x.Mail==kullanici.ToString()).Select(z=>z.ID).FirstOrDefault();
+			var degerler = db.TblHareket.Where(x => x.Uye==id).ToList();
+			return View(degerler);
+        }
     }
 }

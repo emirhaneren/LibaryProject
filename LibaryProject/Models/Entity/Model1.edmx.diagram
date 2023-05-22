@@ -23,6 +23,7 @@
         <AssociationConnector Association="DbLibaryModel.FK_TblKitap_TblYazar" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DbLibaryModel.TblHakkimizda" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="DbLibaryModel.TblIletisim" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbLibaryModel.TblMesajlar" Width="1.5" PointX="8.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

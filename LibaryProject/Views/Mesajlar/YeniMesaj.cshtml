@@ -1,0 +1,40 @@
+﻿@model LibaryProject.Models.Entity.TblMesajlar
+@{
+    ViewBag.Title = "YeniMesaj";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+@*<script>
+    function setTodayDate() {
+        var today = new Date(); // Bugünün tarihini alır
+        var day = String(today.getDate()).padStart(2, '0'); // Gün
+        var month = String(today.getMonth() + 1).padStart(2, '0'); // Ay
+        var year = today.getFullYear(); // Yıl
+
+        var formattedDate = year + '-' + month + '-' + day; // Yıl-Ay-Gün formatında tarih oluşturulur
+        document.getElementsByName("Tarih")[0].value = formattedDate; // "Tarih" isimli input alanının value özelliğini günceller
+    }
+</script>*@
+<br />
+<h2>Yeni Mesaj</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Alıcı e-Mail</label>
+        @Html.TextBoxFor(x => x.Alıcı, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Konu</label>
+        @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mesaj</label>
+        @Html.TextAreaFor(x => x.Mesaj, new { @class = "form-control" })
+    </div>
+    @*<input type="hidden" value="" name="Tarih" />*@
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Gönder</button>
+    </div>
+</form>
+

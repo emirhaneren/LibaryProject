@@ -27,6 +27,8 @@ namespace LibaryProject.Controllers
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.Mail, false);
 				Session["Mail"] = bilgiler.Mail.ToString();
+                Session["Ad"] = bilgiler.Ad.ToString();
+                Session["Soyad"]=bilgiler.Soyad.ToString();
                 //Session["Ad"]=bilgiler.Ad.ToString();
                 //Session["Soyad"] = bilgiler.Soyad.ToString();
                 //Session["KullaniciAdi"] = bilgiler.KullanıcıAdi.ToString();

@@ -1,0 +1,27 @@
+﻿@using LibaryProject.Models.Entity
+@model List<TblMesajlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+<br />
+<h2>Gelen Mesajlar</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Göderen</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.Gonderen</td>
+                    <td>@x.Konu</td>
+                    <td>@x.Mesaj</td>
+                    <td>@x.Tarih</td>
+                </tr>
+            }
+</table>
+
