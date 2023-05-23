@@ -13,9 +13,9 @@
         <th>ID</th>
         <th>Ad</th>
         <th>Soyad</th>
-        <th>Detay</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Yazarın Kitapları</th>
     </tr>
     @foreach (var yzr in Model)
     {
@@ -23,11 +23,11 @@
             <td>@yzr.ID</td>
             <td>@yzr.Ad</td>
             <td>@yzr.Soyad</td>
-            <td>@yzr.Detay</td>
             @*Alert ile Yazar silme işlemi*@
-            <td>@Html.ActionLink("Sil","DeleteYazar",new {id=yzr.ID},new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz ?')" })</td>
+            <td>@Html.ActionLink("Sil", "DeleteYazar", new { id = yzr.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz ?')" })</td>
             @*ID parametresi ile beraber redirect işlemi*@
-            <td><a href="/Yazar/GetYazar/@yzr.ID"class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Yazar/GetYazar/@yzr.ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Yazar/YazarKitaplar/@yzr.ID" class="btn btn-success" style="background-color:mediumvioletred">Yazarın Kitapları</a></td>
         </tr>
     }
 </table>

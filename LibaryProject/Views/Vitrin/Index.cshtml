@@ -109,7 +109,8 @@
                 }
             </div>
             @*Next page button*@
-            @*@Html.PagedListPager((IPagedList)Model.KitapDeger, sayfa => Url.Action("Index", new { sayfa }))*@
+            @Html.PagedListPager((IPagedList)Model.KitapDeger, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions { DelimiterBetweenPageNumbers = "|" })
+
             <!-- /.row -->
         </div>
     </section>

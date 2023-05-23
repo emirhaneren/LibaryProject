@@ -57,5 +57,12 @@ namespace LibaryProject.Controllers
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
+		public ActionResult YazarKitaplar(int id)
+		{
+			var yazar=db.TblKitap.Where(x=>x.Yazar==id).ToList();
+			var yzrad = db.TblYazar.Where(y => y.ID == id).Select(z => z.Ad + " " + z.Soyad).FirstOrDefault();
+			ViewBag.y1 = yzrad;
+			return View(yazar);
+		}
 	}
 }

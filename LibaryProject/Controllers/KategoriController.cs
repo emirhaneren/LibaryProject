@@ -14,7 +14,7 @@ namespace LibaryProject.Controllers
 		public ActionResult Index()
 		{
 			//Listeleme işlemi
-			var degerler = db.TblKategori.ToList();
+			var degerler = db.TblKategori.Where(x=>x.Durum==true).ToList();
 			return View(degerler);
 		}
 		//Kategori Ekleme işlemi
@@ -34,7 +34,8 @@ namespace LibaryProject.Controllers
 		public ActionResult DeleteKategori(int id)
 		{
 			var kategori = db.TblKategori.Find(id);
-			db.TblKategori.Remove(kategori);
+			//db.TblKategori.Remove(kategori);
+			kategori.Durum= false;
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}

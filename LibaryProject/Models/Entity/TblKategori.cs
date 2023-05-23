@@ -22,6 +22,7 @@ namespace LibaryProject.Models.Entity
     
         public byte ID { get; set; }
         public string Ad { get; set; }
+        public Nullable<bool> Durum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblKitap> TblKitap { get; set; }

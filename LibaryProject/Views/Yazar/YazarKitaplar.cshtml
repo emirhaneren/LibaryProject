@@ -1,0 +1,29 @@
+﻿@using LibaryProject.Models.Entity;
+@model List<TblKitap>
+@{
+    ViewBag.Title = "YazatKitaplar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>@ViewBag.y1 Kitapları</h2>
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kategori</th>
+        <th>Yayınevi</th>
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Ad</td>
+            <td>@x.TblKategori.Ad</td>
+            <td>@x.YayınEvi</td>
+        </tr>
+    }
+
+</table>
+

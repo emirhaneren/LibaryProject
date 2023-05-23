@@ -1,0 +1,27 @@
+﻿@using LibaryProject.Models.Entity;
+@model List<TblHareket>
+@{
+    ViewBag.Title = "UyeKitapGecmis";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>@ViewBag.uyead1 Kitap Geçmişi</h2>
+<br />
+<table class="table table-danger">
+    <tr>
+        <th>Kitap Adı</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TblKitap.Ad</td>
+            <td>@x.TblPersonel.Personel</td>
+            <td>@Convert.ToDateTime(x.AlisTarih).ToString("dd/MM/yyyy") </td>
+            <td>@Convert.ToDateTime(x.AlisTarih).ToString("dd/MM/yyyy") </td>
+        </tr>
+    }
+</table>
+

@@ -70,6 +70,7 @@
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ad" Type="varchar" MaxLength="20" />
+          <Property Name="Durum" Type="bit" />
         </EntityType>
         <EntityType Name="TblKitap">
           <Key>
@@ -316,6 +317,7 @@
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TblKitap" Relationship="Self.FK_TblKitap_TblKategori" FromRole="TblKategori" ToRole="TblKitap" />
+          <Property Name="Durum" Type="Boolean" />
         </EntityType>
         <EntityType Name="TblKitap">
           <Key>
@@ -589,6 +591,7 @@
           <EntitySetMapping Name="TblKategori">
             <EntityTypeMapping TypeName="DbLibaryModel.TblKategori">
               <MappingFragment StoreEntitySet="TblKategori">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
               </MappingFragment>

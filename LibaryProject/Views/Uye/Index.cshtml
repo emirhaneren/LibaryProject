@@ -21,6 +21,7 @@
         <th>Okul</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Üye Kitap Geçmişi</th>
     </tr>
     @*Tabloda Listeleme işlemi*@
     @foreach (var uye in Model)
@@ -36,6 +37,7 @@
             <td>@uye.Okul</td>
             <td><a href="/Uye/DeleteUye/@uye.ID" class="btn btn-danger">Sil</a></td>
             <td><a href="/Uye/GetUye/@uye.ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Uye/UyeKitapGecmis/@uye.ID" class="btn btn-success" style="background-color:mediumvioletred">Kitap Geçmişi</a></td>
         </tr>
     }
 </table>

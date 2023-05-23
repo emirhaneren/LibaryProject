@@ -21,8 +21,8 @@ namespace LibaryProject.Controllers
         {
 			Class1 cs = new Class1
 			{
-				KitapDeger = db.TblKitap.ToList()
-				/*KitapDeger = db.TblKitap.ToList().ToPagedList(sayfa, 6)*/,
+				//KitapDeger = db.TblKitap.ToList()
+				KitapDeger = db.TblKitap.ToList().ToPagedList(sayfa, 9),
 				HakkimizdaDeger = db.TblHakkimizda.ToList()
 			};
 			return View(cs);
