@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace LibaryProject.Controllers
 {
@@ -42,6 +43,16 @@ namespace LibaryProject.Controllers
             var id=db.TblUyeler.Where(x=>x.Mail==kullanici.ToString()).Select(z=>z.ID).FirstOrDefault();
 			var degerler = db.TblHareket.Where(x => x.Uye==id).ToList();
 			return View(degerler);
+        }
+        public ActionResult Duyurular()
+        {
+            var duyurular = db.TblDuyurular.ToList();
+            return View(duyurular); 
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("GirisYap", "Login");
         }
     }
 }

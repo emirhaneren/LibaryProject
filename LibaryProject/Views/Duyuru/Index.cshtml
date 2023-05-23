@@ -1,0 +1,41 @@
+﻿@using LibaryProject.Models.Entity;
+@model List<TblDuyurular>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string renk = "";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<h2>Duyurular</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Duyuru</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        if (x.Kategori == "Kitaplar Hk.")
+        { renk = "bg-info text-white"; }
+        if(x.Kategori=="Deneme")
+        { renk = "bg-warning"; }
+        if(x.Kategori=="Ödünç Hk.")
+        { renk = "bg-warning"; }
+        if(x.Kategori=="Ders Bölümü Hk.")
+        { renk = "bg-success"; }
+        <tr class="@renk">
+            <td>@x.ID</td>
+            <td>@x.Kategori</td>
+            <td>@Convert.ToDateTime(x.Tarih).ToString("dd-MM-yyyy")</td>
+            <td><a href="/Duyuru/DuyuruSil/@x.ID" class="btn btn-success" style="background-color:red">Sil</a></td>
+            <td><a href="/Duyuru/DuyuruDetay/@x.ID" class="btn btn-success" style="background-color:deepskyblue">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Duyuru/YeniDuyuru/" class="btn btn-success" style="background-color:purple">Yeni Duyuru Ekle</a>
+

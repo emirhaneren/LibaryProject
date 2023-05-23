@@ -1,0 +1,24 @@
+﻿@using LibaryProject.Models.Entity;
+@model List<TblDuyurular>
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+<br />
+<h2>Duyurular</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Duyuru</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Kategori</td>
+            <td>@Convert.ToDateTime(x.Tarih).ToString("dd-MM-yyyy")</td>
+            <td>@x.Duyuru</td>
+        </tr>
+    }
+</table>

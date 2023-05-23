@@ -1,0 +1,25 @@
+﻿@model LibaryProject.Models.Entity.TblDuyurular
+@{
+    ViewBag.Title = "YeniDuyuru";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Duyuru Ekle</h2>
+<br />
+@*html helper ile duyuru ekleme*@
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Kategori</label>
+        @Html.TextBoxFor(x => x.Kategori, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru</label>
+        @Html.TextBoxFor(x => x.Duyuru, new { @class = "form-control" })
+    </div>
+    <input type="hidden" class="form-control" name="Tarih" value="@DateTime.Now.ToShortDateString()" />
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Duyuru Ekle</button>
+    </div>
+</form>
+
