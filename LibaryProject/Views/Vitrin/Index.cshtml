@@ -55,7 +55,7 @@
         <div class="container d-flex align-items-center flex-column">
 
             <!-- Masthead Avatar Image -->
-            <img class="masthead-avatar mb-5" src="~/WebSource/web/img/library.png" alt="">
+            <img class="masthead-avatar mb-5" src="~/WebSource/web/img/library.png" alt="Libary Avatar">
 
             <!-- Masthead Heading -->
             <h1 class="masthead-heading text-uppercase mb-0">..Hoşgeldiniz..</h1>
@@ -102,7 +102,7 @@
                                     <i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="@k.KitapResim" alt="" width="300" height="200">
+                            <img class="img-fluid" src="@k.KitapResim" alt=" Book Cover" width="300" height="200">
                             <br />
                         </div>
                     </div>
@@ -110,7 +110,6 @@
             </div>
             @*Next page button*@
             @Html.PagedListPager((IPagedList)Model.KitapDeger, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions { DelimiterBetweenPageNumbers = "|" })
-
             <!-- /.row -->
         </div>
     </section>
@@ -290,7 +289,7 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="">
+                                    <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="Photos Photos">
                                     <!-- Portfolio Modal - Text -->
                                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">

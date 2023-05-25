@@ -10,7 +10,7 @@ namespace LibaryProject.Controllers
 #pragma warning disable IDE0044 // Add readonly modifier
 		DbLibaryEntities db = new DbLibaryEntities();
 #pragma warning restore IDE0044 // Add readonly modifier
-							   //Listeleme işlemi
+		//Listeleme işlemi
 		public ActionResult Index()
 		{
 			var degerler = db.TblYazar.ToList();
@@ -25,7 +25,7 @@ namespace LibaryProject.Controllers
 		[HttpPost]
 		public ActionResult AddYazar(TblYazar p)
 		{
-			if(!ModelState.IsValid)
+			if (!ModelState.IsValid)
 			{
 				return View("AddYazar");
 			}
@@ -59,7 +59,7 @@ namespace LibaryProject.Controllers
 		}
 		public ActionResult YazarKitaplar(int id)
 		{
-			var yazar=db.TblKitap.Where(x=>x.Yazar==id).ToList();
+			var yazar = db.TblKitap.Where(x => x.Yazar == id).ToList();
 			var yzrad = db.TblYazar.Where(y => y.ID == id).Select(z => z.Ad + " " + z.Soyad).FirstOrDefault();
 			ViewBag.y1 = yzrad;
 			return View(yazar);

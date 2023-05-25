@@ -1,4 +1,5 @@
 ﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+foo<#= bar.ToString() #>
 <#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
  output extension=".cs"#><#
 

@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 namespace LibaryProject.Controllers
 {
@@ -15,21 +13,21 @@ namespace LibaryProject.Controllers
 		// GET: Odunc
 		public ActionResult Index()
 		{
-			var degerler = db.TblHareket.Where(x=>x.IslemDurum==false).ToList();
+			var degerler = db.TblHareket.Where(x => x.IslemDurum == false).ToList();
 			return View(degerler);
 		}
 		//Ödünç verme işlemi
 		[HttpGet]
 		public ActionResult OduncVer()
 		{
-			List<SelectListItem> deger1=(from x in db.TblUyeler.ToList()
-				select new SelectListItem
-				{
-					Text=x.Ad+" "+x.Soyad,
-					Value= x.ID.ToString()
-				}).ToList();
+			List<SelectListItem> deger1 = (from x in db.TblUyeler.ToList()
+										   select new SelectListItem
+										   {
+											   Text = x.Ad + " " + x.Soyad,
+											   Value = x.ID.ToString()
+										   }).ToList();
 			ViewBag.dgr1 = deger1;
-			List<SelectListItem> deger2 = (from y in db.TblKitap.Where(x=>x.Durum==true).ToList()
+			List<SelectListItem> deger2 = (from y in db.TblKitap.Where(x => x.Durum == true).ToList()
 										   select new SelectListItem
 										   {
 											   Text = y.Ad,
@@ -48,12 +46,12 @@ namespace LibaryProject.Controllers
 		[HttpPost]
 		public ActionResult OduncVer(TblHareket p)
 		{
-			var d1=db.TblUyeler.Where(x=>x.ID==p.TblUyeler.ID).FirstOrDefault();
+			var d1 = db.TblUyeler.Where(x => x.ID == p.TblUyeler.ID).FirstOrDefault();
 			var d2 = db.TblKitap.Where(x => x.ID == p.TblKitap.ID).FirstOrDefault();
 			var d3 = db.TblPersonel.Where(x => x.ID == p.TblPersonel.ID).FirstOrDefault();
-			p.TblUyeler= d1;
-			p.TblKitap= d2;
-			p.TblPersonel= d3;
+			p.TblUyeler = d1;
+			p.TblKitap = d2;
+			p.TblPersonel = d3;
 			db.TblHareket.Add(p);
 			db.SaveChanges();
 			return RedirectToAction("Index");
@@ -62,8 +60,8 @@ namespace LibaryProject.Controllers
 		public ActionResult OduncIade(TblHareket p)
 		{
 			var odc = db.TblHareket.Find(p.ID);
-			DateTime baslangıc= DateTime.Parse(odc.IadeTarih.ToString());
-			DateTime bugun=Convert.ToDateTime(DateTime.Now.ToShortDateString());
+			DateTime baslangıc = DateTime.Parse(odc.IadeTarih.ToString());
+			DateTime bugun = Convert.ToDateTime(DateTime.Now.ToShortDateString());
 			TimeSpan sonuc = bugun - baslangıc;
 			ViewBag.dgr = sonuc.TotalDays;
 			return View("OduncIade", odc);

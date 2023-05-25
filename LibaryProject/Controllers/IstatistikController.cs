@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LibaryProject.Models.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LibaryProject.Models.Entity;
 
 namespace LibaryProject.Controllers
 {
@@ -69,7 +67,7 @@ namespace LibaryProject.Controllers
 			ViewBag.dgr4 = deger4;
 			ViewBag.dgr5 = deger5;
 			ViewBag.dgr6 = deger6;
-			ViewBag.dgr7=deger7;
+			ViewBag.dgr7 = deger7;
 			ViewBag.dgr8 = deger8;
 			ViewBag.dgr9 = deger9;
 			ViewBag.dgr10 = deger10;

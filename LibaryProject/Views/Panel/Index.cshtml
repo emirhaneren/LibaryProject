@@ -21,9 +21,15 @@
         </tr>
         <tr>
             <td>
-                <label>ID :</label>
-                @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+                <label>Fotoğraf :  </label>
+                <img src="@ViewBag.d1" alt="Üye Fotoğrafı" width="200" height="150">
             </td>
+        </tr>
+        <tr>
+        <td>
+            <label>ID :</label>
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+        </td>
         </tr>
         <tr>
             <td>
@@ -74,4 +80,3 @@
         </tr>
     </table>
 }
-

@@ -66,7 +66,7 @@ namespace LibaryProject.Controllers
 		public ActionResult UyeKitapGecmis(int id)
 		{
 			var kitapgecmis = db.TblHareket.Where(x => x.Uye == id).ToList();
-			var uyead=db.TblUyeler.Where(y=>y.ID == id).Select(z=>z.Ad + " " + z.Soyad).FirstOrDefault();
+			var uyead = db.TblUyeler.Where(y => y.ID == id).Select(z => z.Ad + " " + z.Soyad).FirstOrDefault();
 			ViewBag.uyead1 = uyead;
 			return View(kitapgecmis);
 		}
