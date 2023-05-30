@@ -1,5 +1,5 @@
-﻿using LibaryProject.Models.Entity;
-using System.Linq;
+﻿using System.Linq;
+using LibaryProject.Models.Entity;
 using System.Web.Mvc;
 
 namespace LibaryProject.Controllers
@@ -8,7 +8,7 @@ namespace LibaryProject.Controllers
 	{
 		// GET: Duyuru
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		public ActionResult Index()
 		{

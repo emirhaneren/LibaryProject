@@ -26,8 +26,8 @@ namespace LibaryProject.Models.Entity
         public Nullable<byte> Personel { get; set; }
         public Nullable<System.DateTime> AlisTarih { get; set; }
         public Nullable<System.DateTime> IadeTarih { get; set; }
-        public Nullable<bool> IslemDurum { get; set; }
         public Nullable<System.DateTime> UyeGetirTarih { get; set; }
+        public Nullable<bool> IslemDurum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblCezalar> TblCezalar { get; set; }

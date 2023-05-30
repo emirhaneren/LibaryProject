@@ -1,6 +1,6 @@
-﻿using LibaryProject.Models.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
+using LibaryProject.Models.Entity;
 namespace LibaryProject.Controllers
 {
 	public class YazarController : Controller
@@ -8,7 +8,7 @@ namespace LibaryProject.Controllers
 		// GET: Yazar
 		//Create an entitiy
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		//Listeleme işlemi
 		public ActionResult Index()

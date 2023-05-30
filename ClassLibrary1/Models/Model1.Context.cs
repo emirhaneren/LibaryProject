@@ -7,18 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LibaryProject.Models.Entity
+namespace ClassLibrary1.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
-    public partial class DbLibaryEntity : DbContext
+    public partial class DbLibaryEntities : DbContext
     {
-        public DbLibaryEntity()
-            : base("name=DbLibaryEntity")
+        public DbLibaryEntities()
+            : base("name=DbLibaryEntities")
         {
         }
     
@@ -27,6 +25,7 @@ namespace LibaryProject.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TblAdmin> TblAdmin { get; set; }
         public virtual DbSet<TblCezalar> TblCezalar { get; set; }
         public virtual DbSet<TblDuyurular> TblDuyurular { get; set; }
@@ -40,30 +39,5 @@ namespace LibaryProject.Models.Entity
         public virtual DbSet<TblPersonel> TblPersonel { get; set; }
         public virtual DbSet<TblUyeler> TblUyeler { get; set; }
         public virtual DbSet<TblYazar> TblYazar { get; set; }
-    
-        public virtual ObjectResult<string> EnAktifUye()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnAktifUye");
-        }
-    
-        public virtual ObjectResult<string> EnCaliskanPersonel()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnCaliskanPersonel");
-        }
-    
-        public virtual ObjectResult<string> EnFazlaKitapYazar()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaKitapYazar");
-        }
-    
-        public virtual ObjectResult<string> EnFazlaOkunanKitap()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaOkunanKitap");
-        }
-    
-        public virtual ObjectResult<string> EnFazlaYayinEvi()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaYayinEvi");
-        }
     }
 }

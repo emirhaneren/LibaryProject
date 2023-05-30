@@ -1,14 +1,14 @@
-﻿using LibaryProject.Models.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using LibaryProject.Models.Entity;
 namespace LibaryProject.Controllers
 {
 	public class OduncController : Controller
 	{
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		// GET: Odunc
 		public ActionResult Index()

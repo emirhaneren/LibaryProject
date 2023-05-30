@@ -10,10 +10,12 @@
 namespace LibaryProject.Models.Entity
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class EnFazlaYayinEvi_Result
+    public partial class TblAdmin
     {
-        public string YayınEvi { get; set; }
-        public Nullable<int> Column1 { get; set; }
+        public int ID { get; set; }
+        public string Mail { get; set; }
+        public string Sifre { get; set; }
     }
 }

@@ -1,15 +1,14 @@
-﻿using LibaryProject.Models.Entity;
-using PagedList;
+﻿using PagedList;
 using System.Linq;
 using System.Web.Mvc;
-
+using LibaryProject.Models.Entity;
 namespace LibaryProject.Controllers
 {
 
 	public class UyeController : Controller
 	{
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		// GET: Uye
 		public ActionResult Index(int sayfa = 1)

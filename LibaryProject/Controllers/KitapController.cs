@@ -1,9 +1,9 @@
-﻿using LibaryProject.Models.Entity;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using SelectListItem = System.Web.Mvc.SelectListItem;
+using LibaryProject.Models.Entity;
 
 namespace LibaryProject.Controllers
 {
@@ -11,7 +11,7 @@ namespace LibaryProject.Controllers
 	{
 		// GET: Kitap
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		public ActionResult Index(string p)
 		{

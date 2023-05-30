@@ -1,16 +1,15 @@
-﻿using LibaryProject.Models.Entity;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using LibaryProject.Models.Entity;
 namespace LibaryProject.Controllers
 {
 	public class IstatistikController : Controller
 	{
 		// GET: Istatistik
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		public ActionResult Index()
 		{
@@ -55,7 +54,7 @@ namespace LibaryProject.Controllers
 			var deger5 = db.TblKategori.Count();
 			var deger6 = db.EnAktifUye().FirstOrDefault();
 			var deger7 = db.EnFazlaOkunanKitap().FirstOrDefault();
-			var deger8 = db.EnFazlaKitapYazar1().FirstOrDefault();
+			var deger8 = db.EnFazlaKitapYazar().FirstOrDefault();
 			var deger9 = db.TblKitap.GroupBy(x => x.YayınEvi).OrderByDescending(z => z.Count()).Select(y => new { y.Key }).FirstOrDefault();
 			//var deger9 = db.EnFazlaYayinEvi2().FirstOrDefault();
 			var deger10 = db.EnCaliskanPersonel().FirstOrDefault();

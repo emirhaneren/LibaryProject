@@ -1,15 +1,14 @@
-﻿using LibaryProject.Models.Entity;
-using System;
+﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-
+using LibaryProject.Models.Entity;
 namespace LibaryProject.Controllers
 {
 	public class MesajlarController : Controller
 	{
 		// GET: Mesajlar
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		public ActionResult Index()
 		{

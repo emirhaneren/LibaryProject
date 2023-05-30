@@ -1,8 +1,7 @@
-﻿using LibaryProject.Models.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
-
+using LibaryProject.Models.Entity;
 namespace LibaryProject.Controllers
 {
 	[AllowAnonymous]
@@ -10,7 +9,7 @@ namespace LibaryProject.Controllers
 	{
 		// GET: Login
 #pragma warning disable IDE0044 // Add readonly modifier
-		DbLibaryEntities db = new DbLibaryEntities();
+		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		public ActionResult GirisYap()
 		{
