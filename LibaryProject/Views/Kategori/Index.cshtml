@@ -1,7 +1,9 @@
 ﻿@*istelemek için Gereken Syntax*@
 @using LibaryProject.Models.Entity;
-@model List<TblKategori>
-
+@using PagedList
+@using PagedList.Mvc
+@*PagedList model*@
+@model PagedList.IPagedList<TblKategori>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -10,13 +12,13 @@
 <h2>Kategoriler</h2>
 
 @*Kategori Listeleme*@
-<table class="table table-bordered">
-    <tr>
+<table class="table table-striped">
+    <tr style="background-color:rgb(239, 144, 12)">
         <th>Kategori ID</th>
         <th>Kategori Adı</th>
         <th>Sil</th>
         <th>Güncelle</th>
-    </tr>
+    </trstyle="background-color:rgb(239,>
     @*Tabloda Listeleme işlemi*@
     @foreach (var ktg in Model)
     {
@@ -28,6 +30,8 @@
         </tr>
     }
 </table>
+@*Next page button*@
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
 @*Yeni Öğe Butonu*@
 <a href="/Kategori/AddKategori" class="btn btn-primary">Yeni Kategori Ekle</a>
 

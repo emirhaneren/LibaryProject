@@ -96,7 +96,7 @@
                 @foreach (var k in Model.KitapDeger)
                 {
                     <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal@(k.ID)">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
                                     <i class="fas fa-plus fa-3x"></i>
@@ -219,21 +219,11 @@
 
                 <!-- Footer Social Icons -->
                 <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Sosyal Medya Hesaplarımız</h4>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-facebook-f"></i>
-                    </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-twitter"></i>
-                    </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-linkedin-in"></i>
-                    </a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#">
-                        <i class="fab fa-fw fa-dribbble"></i>
+                    <h4 class="text-uppercase mb-4">Admin Giriş Sayfası</h4>
+                    <a class="btn btn-outline-light btn-social mx-1" href="/AdminLogin/Login/">
+                        <i class="fa fa-user "></i>
                     </a>
                 </div>
-
                 <!-- Footer About Text -->
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Kütüphane Modülü</h4>
@@ -243,7 +233,6 @@
                         <a href="https://github.com/emirhaneren">Diğer projelerimiz</a>
                     </p>
                 </div>
-
             </div>
         </div>
     </footer>
@@ -264,19 +253,19 @@
 
     <!-- Portfolio Modals -->
     <!-- Portfolio Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                        <i class="fas fa-times"></i>
-                    </span>
-                </button>
-                <div class="modal-body text-center">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            @foreach (var k in Model.KitapDeger)
-                            {
+    @foreach (var k in Model.KitapDeger)
+    {
+        <div class="portfolio-modal modal fade" id="portfolioModal@(k.ID)" tabindex="-1" role="dialog" aria-labelledby="portfolioModal@(k.ID)Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            <i class="fas fa-times"></i>
+                        </span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title -->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">@k.Ad</h2>
@@ -288,22 +277,20 @@
                                         </div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image -->
-                                    <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="Photos Photos">
                                     <!-- Portfolio Modal - Text -->
-                                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                                    <p class="mb-5">@k.Detay</p>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
-                                        Close Window
+                                        Pencereyi Kapat
                                     </button>
                                 </div>
-                            }
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
     <!-- Bootstrap core JavaScript -->
     <script src="~/WebSource/web/vendor/jquery/jquery.min.js"></script>
     <script src="~/WebSource/web/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -2,6 +2,9 @@
 using System.Web.Mvc;
 using System.Web.Security;
 using LibaryProject.Models.Entity;
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
+using SelectListItem = System.Web.Mvc.SelectListItem;
 namespace LibaryProject.Controllers
 {
 	[Authorize]
@@ -51,6 +54,17 @@ namespace LibaryProject.Controllers
 		{
 			FormsAuthentication.SignOut();
 			return RedirectToAction("GirisYap", "Login");
+		}
+		public ActionResult BulunanKitaplar(string p)
+		{
+			var kitaplar = from k in db.TblKitap select k;
+			kitaplar = kitaplar.Where(x => x.Durum == true);
+			if (!string.IsNullOrEmpty(p))
+			{
+				kitaplar = kitaplar.Where(x => x.Ad.Contains(p));
+			}
+			//  var kitaplar=db.TblKitap.ToList();
+			return View(kitaplar.ToList());
 		}
 	}
 }

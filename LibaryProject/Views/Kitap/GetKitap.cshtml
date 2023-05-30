@@ -36,6 +36,10 @@
             <label>Sayfa</label>
             @Html.TextBoxFor(k => k.SayfaSayısı, new { @class = "form-control" })
         </div>
+        <div style="margin-bottom:15px">
+            <label>Sayfa</label>
+            @Html.TextAreaFor(k => k.Detay, new { @class = "form-control" })
+        </div>
         <button class="btn btn-warning">Kitap Bilgilerini Güncelle</button>
         @*<input type="hidden" name="Durum" value="True" />*@
     </div>

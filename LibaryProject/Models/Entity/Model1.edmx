@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbLibaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbLibaryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblAdmin">
           <Key>
             <PropertyRef Name="ID" />
@@ -92,6 +92,7 @@
           <Property Name="SayfaSayısı" Type="varchar" MaxLength="4" />
           <Property Name="Durum" Type="bit" />
           <Property Name="KitapResim" Type="varchar" MaxLength="500" />
+          <Property Name="Detay" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="TblMesajlar">
           <Key>
@@ -266,8 +267,7 @@
             <End Role="TblKitap" EntitySet="TblKitap" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbLibaryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -368,6 +368,7 @@
           <NavigationProperty Name="TblHareket" Relationship="Self.FK_TblHareket_TblKitap" FromRole="TblKitap" ToRole="TblHareket" />
           <NavigationProperty Name="TblKategori" Relationship="Self.FK_TblKitap_TblKategori" FromRole="TblKitap" ToRole="TblKategori" />
           <NavigationProperty Name="TblYazar" Relationship="Self.FK_TblKitap_TblYazar" FromRole="TblKitap" ToRole="TblYazar" />
+          <Property Name="Detay" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TblMesajlar">
           <Key>
@@ -637,6 +638,7 @@
           <EntitySetMapping Name="TblKitap">
             <EntityTypeMapping TypeName="DbLibaryModel.TblKitap">
               <MappingFragment StoreEntitySet="TblKitap">
+                <ScalarProperty Name="Detay" ColumnName="Detay" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Kategori" ColumnName="Kategori" />

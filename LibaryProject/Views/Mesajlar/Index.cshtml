@@ -20,7 +20,7 @@
                     <td>@x.Gonderen</td>
                     <td>@x.Konu</td>
                     <td>@x.Mesaj</td>
-                    <td>@x.Tarih</td>
+                    <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
                 </tr>
             }
 </table>

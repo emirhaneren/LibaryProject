@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using LibaryProject.Models.Entity;
+using PagedList;
+
 namespace LibaryProject.Controllers
 {
 	public class KategoriController : Controller
@@ -11,10 +13,10 @@ namespace LibaryProject.Controllers
 #pragma warning disable IDE0044 // Add readonly modifier
 		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
-		public ActionResult Index()
+		public ActionResult Index(int sayfa = 1)
 		{
 			//Listeleme işlemi
-			var degerler = db.TblKategori.Where(x => x.Durum == true).ToList();
+			var degerler = db.TblKategori.Where(x => x.Durum == true).ToList().ToPagedList(sayfa,10);
 			return View(degerler);
 		}
 		//Kategori Ekleme işlemi

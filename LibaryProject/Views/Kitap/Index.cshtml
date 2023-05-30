@@ -7,16 +7,16 @@
 
 <h2>Kitap Sayfası</h2>
 
-@using (Html.BeginForm("Index","Kitap",FormMethod.Get))
-            {
-                <div style="margin-bottom:15px; margin-top:15px;">
-                    <b>Aranacak Kitap Adını Girin: &nbsp;</b> @Html.TextBox("p")
-                    <input type="submit" value="Ara" />
-                </div>
-            }
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Aranacak Kitap Adını Girin: &nbsp;</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
 
-<table class="table table-bordered">
-    <tr>
+<table class="table table-striped">
+    <tr style="background-color:rgb(239, 144, 12)">
         <th>ID</th>
         <th>Kitap Adı</th>
         <th>Kitap Yazarı</th>
@@ -28,21 +28,31 @@
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
-    @foreach(var k in Model)
-            {
-                <tr>
-                    <td>@k.ID</td>
-                    <td>@k.Ad</td>
-                    <td>@k.TblYazar.Ad @k.TblYazar.Soyad</td>
-                    <td>@k.TblKategori.Ad</td>
-                    <td>@k.BasımYılı</td>
-                    <td>@k.YayınEvi</td>
-                    <td>@k.SayfaSayısı</td>
-                    <td>@k.Durum</td>
-                    <td><a href="/Kitap/DeleteKitap/@k.ID" class="btn btn-danger">Sil</a></td>
-                    <td><a href="/Kitap/GetKitap/@k.ID" class="btn btn-success">Güncelle</a></td>
-                </tr>
-            }
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.Ad</td>
+            <td>@k.TblYazar.Ad @k.TblYazar.Soyad</td>
+            <td>@k.TblKategori.Ad</td>
+            <td>@k.BasımYılı</td>
+            <td>@k.YayınEvi</td>
+            <td>@k.SayfaSayısı</td>
+            <td>
+                @if (Convert.ToBoolean(k.Durum))
+                {
+                    <span style="color: green;">Bulunuyor</span>
+                }
+                else
+                {
+                    <span style="color: red;">Bulunmuyor</span>
+                }
+            </td>
+            <td><a href="/Kitap/DeleteKitap/@k.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kitap/GetKitap/@k.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
 </table>
 <a href="/Kitap/AddKitap" class="btn btn-primary">Yeni Kitap Ekle</a>
+<br />
 

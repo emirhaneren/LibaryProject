@@ -1,0 +1,39 @@
+﻿@using LibaryProject.Models.Entity
+@model List<TblKitap>
+@{
+    ViewBag.Title = "BulunanKitaplar";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+<br />
+<h2>BulunanKitaplar</h2>
+<br />
+@using (Html.BeginForm("BulunanKitaplar","Panel",FormMethod.Get))
+{
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Aranacak Kitap Adını Girin: &nbsp;</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kitap Yazarı</th>
+        <th>Kategori</th>
+        <th>Basım Yılı</th>
+        <th>Yayın Evi</th>
+        <th>Sayfa Sayısı</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.Ad</td>
+            <td>@k.TblYazar.Ad @k.TblYazar.Soyad</td>
+            <td>@k.TblKategori.Ad</td>
+            <td>@k.BasımYılı</td>
+            <td>@k.YayınEvi</td>
+            <td>@k.SayfaSayısı</td>
+        </tr>
+    }
+</table>

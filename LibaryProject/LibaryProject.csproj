@@ -143,7 +143,6 @@
     <Compile Include="Controllers\AyarlarController.cs" />
     <Compile Include="Controllers\DuyuruController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\GrafikController.cs" />
     <Compile Include="Controllers\IslemController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
@@ -551,10 +550,7 @@
     <Content Include="WebSource\web\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Vitrin\Index.cshtml" />
     <Content Include="Views\Istatistik\Index.cshtml" />
-    <Content Include="Views\Istatistik\Hava.cshtml" />
     <Content Include="Views\Istatistik\HavaKart.cshtml" />
-    <Content Include="Views\Istatistik\Galeri.cshtml" />
-    <Content Include="Views\Istatistik\LinqKart.cshtml" />
     <Content Include="WebSource\web3\fonts\fontawesome-webfont.eot" />
     <Content Include="WebSource\web3\fonts\fontawesome-webfont.ttf" />
     <Content Include="WebSource\web3\fonts\fontawesome-webfont.woff" />
@@ -618,13 +614,13 @@
     <Content Include="Views\Duyuru\DuyuruDetay.cshtml" />
     <Content Include="Views\Panel\Duyurular.cshtml" />
     <Content Include="Views\AdminLogin\Login.cshtml" />
-    <Content Include="Views\Grafik\Index.cshtml" />
     <Content Include="Views\Error\Page404.cshtml" />
     <Content Include="Views\Error\Page403.cshtml" />
     <Content Include="Views\Error\Page400.cshtml" />
     <Content Include="Views\Ayarlar\Index.cshtml" />
     <Content Include="Views\Ayarlar\AddAdmin.cshtml" />
     <Content Include="Views\Ayarlar\GetAdmin.cshtml" />
+    <Content Include="Views\Panel\BulunanKitaplar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

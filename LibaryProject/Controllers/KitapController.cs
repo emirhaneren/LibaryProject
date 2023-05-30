@@ -20,9 +20,7 @@ namespace LibaryProject.Controllers
 			{
 				kitaplar = kitaplar.Where(x => x.Ad.Contains(p));
 			}
-
 			//  var kitaplar=db.TblKitap.ToList();
-
 			return View(kitaplar.ToList());
 		}
 		[HttpGet]

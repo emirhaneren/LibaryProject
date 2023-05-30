@@ -8,9 +8,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+<h2>Üyeler</h2>
+
 @*Uyeler Listeleme*@
-<table class="table table-bordered">
-    <tr>
+<table class="table table-striped">
+    <tr style="background-color:rgb(239, 144, 12)">
         <th>Uye ID</th>
         <th>Üye Adı</th>
         <th>Üye Soyadı</th>
@@ -42,7 +44,7 @@
     }
 </table>
 @*Next page button*@
-@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new {sayfa}))
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
 @*Yeni Öğe Butonu*@
 <a href="/Uye/AddUye" class="btn btn-primary">Yeni Üye Ekle</a>
 

@@ -11,10 +11,14 @@ namespace LibaryProject.Controllers
 		DbLibaryEntity db = new DbLibaryEntity();
 #pragma warning restore IDE0044 // Add readonly modifier
 		//Listeleme işlemi
-		public ActionResult Index()
+		public ActionResult Index(string p)
 		{
-			var degerler = db.TblYazar.ToList();
-			return View(degerler);
+			var degerler = from k in db.TblYazar select k;
+			if (!string.IsNullOrEmpty(p))
+			{
+				degerler = degerler.Where(x => x.Ad.Contains(p));
+			}
+			return View(degerler.ToList());
 		}
 		//Yazar ekleme işlemi
 		[HttpGet]
