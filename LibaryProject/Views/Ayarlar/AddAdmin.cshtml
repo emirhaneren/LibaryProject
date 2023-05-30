@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@*Normal input kullanarak ekleme işlemi*@
+<form class="form-group" method="post">
+    <br />
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Admin Mail</label>
+        <input type="text" class="form-control" name="Mail" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Admin Sifre</label>
+        <input type="password" class="form-control" name="Sifre" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Admin Ekle</button>
+    </div>
+    <input type="hidden" name="Durum" value="True" />
+</form>
+

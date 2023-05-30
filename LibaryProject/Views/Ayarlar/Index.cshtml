@@ -1,0 +1,31 @@
+﻿@*istelemek için Gereken Syntax*@
+@using LibaryProject.Models.Entity;
+@model List<TblAdmin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Admin Listesi</h2>
+
+@*Admin Listeleme*@
+<table class="table table-bordered">
+    <tr>
+        <th>Admin ID</th>
+        <th>Admin Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @*Tabloda Listeleme işlemi*@
+    @foreach (var adm in Model)
+    {
+        <tr>
+            <td>@adm.ID</td>
+            <td>@adm.Mail</td>
+            <td><a href="/Ayarlar/DeleteAdmin/@adm.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Ayarlar/GetAdmin/@adm.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+@*Yeni Öğe Butonu*@
+<a href="/Ayarlar/AddAdmin/" class="btn btn-primary">Yeni Admin Ekle</a>

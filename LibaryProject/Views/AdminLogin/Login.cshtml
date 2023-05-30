@@ -12,23 +12,29 @@
 </head>
 <body>
     <!-- partial:index.partial.html -->
-    <div class="login-form">
-        <form>
-            <h1>Admin Giriş</h1>
-            <div class="content">
-                <div class="input-field">
-                    <input type="email" placeholder="e-Mail" autocomplete="nope">
+
+    @using (Html.BeginForm("Login", "AdminLogin", FormMethod.Post))
+    {
+        <div class="login-form">
+            <form>
+                <h1>Admin Giriş</h1>
+                <div class="content">
+                    <div class="input-field">
+                        <input type="email" name="Mail" placeholder="e-Mail" autocomplete="nope">
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="Sifre" placeholder="Şifre" autocomplete="new-password">
+                    </div>
+                    <a href="#" class="link">Şifrenizi mi unuttunuz ?</a>
+                    <br />
+                    <a href="/Vitrin/Index/" class="link">Ana Sayfaya Dönün</a>
                 </div>
-                <div class="input-field">
-                    <input type="password" placeholder="Şifre" autocomplete="new-password">
+                <div class="action" style="background-color:darkblue">
+                    <button class="btn btn-warning">Giriş</button>
                 </div>
-                <a href="#" class="link">Şifrenizi mi unuttunuz ?</a>
-            </div>
-            <div class="action" style="background-color:darkblue">
-                <button class="btn btn-warning" >Giriş</button>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    }
     <!-- partial -->
     <script src="~/WebSource/admin-login/script.js"></script>
 </body>
